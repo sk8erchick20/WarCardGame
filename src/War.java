@@ -21,12 +21,16 @@ public class War
       Card d= deck.takeCardFromTop();
       p2.addCardToTop(d);
     }
+    int r=1;
     while(p1.getSize()>0 && p2.getSize()>0)
     {
       Card c1 = p1.takeCardFromTop();
       stack1.addCardToTop(c1);
       Card c2 = p2.takeCardFromTop();
       stack2.addCardToTop(c2);
+      System.out.println(p1.getSize()+" ---round "+r+"--- "+p2.getSize());
+      System.out.println(c1.toString()+" : "+c2.toString());
+      r++;
       if(c1.compareTo(c2) >0)
       {
         p1.addCardToBottom(c1);
@@ -41,6 +45,7 @@ public class War
       {
         while(stack1.getCard(stack1.getSize()-1)== stack2.getCard(stack2.getSize()-1))
         {
+     
           stack1.addCardToTop(p1.takeCardFromTop());
           stack1.addCardToTop(p1.takeCardFromTop());
           stack2.addCardToTop(p2.takeCardFromTop());
@@ -63,10 +68,6 @@ public class War
           }
         }
       }
-      int r=1;
-      System.out.println(p1.getSize()+" ---round "+r+"--- "+p2.getSize());
-      System.out.println(c1.toString()+" : "+c2.toString());
-      r++;
     }
   }
 }
